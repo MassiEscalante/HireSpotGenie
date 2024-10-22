@@ -117,9 +117,7 @@ tbody tr:nth-child(odd) {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh; /* Full height for vertical nav */
-  width: 200px; /* Adjust the width as needed */
-  background-color: rgba(0, 0, 50, 0.9); /* Dark background */
+  background-color: transparent; /* Remove the background */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
