@@ -23,20 +23,10 @@ a:hover {
 }
 
 body {
-  background: linear-gradient(
-    180deg,
-    rgb(32, 44, 136) 0%,
-    rgba(9, 9, 121, 1) 15%,
-    rgba(0, 2, 18, 1) 100%
-  );
-  background: radial-gradient(circle, rgba(0, 0, 50, 1) 0%, rgba(0, 0, 75, 1) 50%, rgba(0, 0, 150, 1) 100%);
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 50, 1) 0%, rgba(0, 0, 75, 1) 50%, rgba(0, 0, 150, 1) 100%);
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-attachment: fixed;
+  font-family: 'Inter Tight', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 h1 {
@@ -420,53 +410,71 @@ tbody tr:nth-child(odd) {
 /*SavedCandidates
 /* Table styles */
 .candidate-table {
-  width: 100%;
+  width: 90%;
+  margin: 40px auto;
   border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 1em;
-  min-width: 600px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.1); /* Glass effect */
+  backdrop-filter: blur(10px); /* Glassmorphism blur */
+  border-radius: 10px;
+  overflow: hidden; /* Ensures rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .candidate-table thead tr {
-  background-color: #333;
+  background-color: rgba(50, 50, 200, 0.8);
   color: #fff;
-  text-align: left;
+}
+.candidate-table thead {
+  background-color: rgba(50, 50, 200, 0.8);
+  color: #fff;
 }
 
 .candidate-table th, .candidate-table td {
-  padding: 12px 15px;
+  padding: 15px;
+  text-align: left;
+  color: #ffffff;
 }
 
 .candidate-table tbody tr {
-  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
 }
 
-.candidate-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+.candidate-table tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.05); /* Subtle alternate row color */
 }
 
-.candidate-table tbody tr:nth-of-type(odd) {
-  background-color: #333;
-  color: white;
+.candidate-table tbody tr:nth-child(even) {
+  background-color: rgba(50, 50, 50, 0.2); /* Darker for consistency */
+}
+
+.candidate-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Highlight on hover */
 }
 
 .candidate-table tbody tr:last-of-type {
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid rgba(50, 50, 200, 0.8); /* Bottom border to match header */
 }
 
-/* Candidate avatar */
+/* Candidate Avatar */
 .candidate-avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Subtle glow */
 }
 
-/* Reject button */
+/* Reject Button */
 .reject-btn {
-  background-color: red;
+  background-color: transparent;
   border: none;
-  color: white;
   font-size: 1.5rem;
+  color: red;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reject-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px red; /* Red glow on hover */
+  background-color: rgba(255, 0, 0, 0.2); /* Red background on hover */
 }
