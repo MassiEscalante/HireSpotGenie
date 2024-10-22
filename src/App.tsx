@@ -1,16 +1,19 @@
-import { Outlet, Link } from 'react-router-dom';  // Keep the Link import for future use
-import Nav from './components/Nav';  // Import your custom Nav component
+import { Outlet } from 'react-router-dom';
+import Nav from './components/Nav';  // Import the Nav component
 
 function App() {
   return (
-    <>
-      {/* Use the Nav component here */}
-      <Nav /> 
-      
-      <main>
-        <Outlet />
-      </main>
-    </>
+    <div>
+      <Nav />  {/* Sidebar Nav component */}
+      <div style={{ marginLeft: '220px', padding: '20px' }}>  {/* Add margin to push content aside */}
+        <header>
+         
+        </header>
+        <main>
+          <Outlet />
+        </main>
+      </div>
+    </div>
   );
 }
 

@@ -112,13 +112,19 @@ tbody tr:nth-child(odd) {
   background-color: #333333;
 }
 
+/* Updated Nav for glassmorphism effect and modern design */
 .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full height for vertical nav */
+  width: 200px; /* Adjust the width as needed */
+  background-color: rgba(0, 0, 50, 0.9); /* Dark background */
   display: flex;
-  flex-direction: column; /* Stack items vertically */
+  flex-direction: column;
   align-items: flex-start;
-  padding: 1rem 2rem;
-  background-color: transparent; /* Keep background transparent */
-  color: #fff;
+  padding: 2rem;
+  z-index: 100;
 }
 
 /* Hamburger icon */
@@ -152,19 +158,23 @@ tbody tr:nth-child(odd) {
 /* Nav links styling */
 .nav-links {
   display: flex;
-  flex-direction: column; /* Stack the links vertically */
-  gap: 1rem; /* Add spacing between links */
+  flex-direction: column; /* Stack items vertically */
+  gap: 1rem;
 }
 
+.nav-links li {
+  list-style: none; /* Remove bullet points */
+}
 .nav-links li a {
   color: #fff;
   text-decoration: none;
   font-size: 1.2rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav-links li a:hover {
   color: #00bcd4;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 1), 0 0 15px rgba(0, 255, 255, 0.8); /* Magical glow */
 }
 
 /* Mobile menu toggle */
@@ -175,8 +185,11 @@ tbody tr:nth-child(odd) {
   top: 60px;
   left: 0;
   width: 100%;
-  background-color: #111;
+  background-color: rgba(17, 17, 17, 0.95); /* Darken background for mobile */
   padding: 1rem 2rem;
+  animation: slideDown 0.5s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 /* Responsive Hamburger menu */
@@ -186,13 +199,23 @@ tbody tr:nth-child(odd) {
   }
 
   .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+    display: none;
   }
 
   .nav-links.active {
     display: flex;
+  }
+}
+
+/* Sliding animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -223,7 +246,7 @@ tbody tr:nth-child(odd) {
   text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
   animation: glow 2s infinite alternate;
   margin-bottom: 20px;
-  margin-top: -65px; 
+  margin-top: -10px; 
 }
 /*/CandidateCard.tsx Styles/*/
 .candidate-card {
@@ -277,8 +300,9 @@ tbody tr:nth-child(odd) {
 }
 .reject-btn:hover {
   color: red;
-  transform: scale(1.2) rotate(-10deg); /* Combine scaling and rotation */
-  box-shadow: 0px 0px 10px 3px rgba(255, 0, 0, 0.7); /* Keep the glow effect */
+  transform: scale(1.2) rotate(-10deg);
+  box-shadow: 0px 0px 10px 3px rgba(255, 0, 0, 0.7);
+  background-color: rgba(255, 0, 0, 0.2); /* Add a light red background on hover */
 }
 
 .reject-btn {
@@ -292,8 +316,94 @@ tbody tr:nth-child(odd) {
 
 .accept-btn:hover {
   color: green;
-  transform: scale(1.2) rotate(10deg); /* Combine scaling and rotation */
-  box-shadow: 0px 0px 10px 3px rgba(0, 255, 0, 0.7); /* Keep the glow effect */
+  transform: scale(1.2) rotate(10deg);
+  box-shadow: 0px 0px 10px 3px rgba(0, 255, 0, 0.7);
+  background-color: rgba(0, 255, 0, 0.2); /* Add a light green background on hover */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.candidate-card {
+  background-color: #111;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  color: white;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.candidate-card:hover {
+  transform: translateY(-10px); /* Lift the card */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7); /* Add depth */
+}
+
+.candidate-card:focus-within { /* Glow effect on focus */
+  box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.8);
+}
+
+.candidate-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.candidate-details h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.candidate-details p {
+  margin: 5px 0;
+}
+
+.candidate-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.reject-btn,
+.accept-btn {
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Circular buttons */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add smooth scaling */
+}
+
+.reject-btn {
+  background-color: #dc3545; /* Bootstrap Danger color */
+  color: white;
+}
+
+.accept-btn {
+  background-color: #28a745; /* Bootstrap Success color */
+  color: white;
+}
+
+.reject-btn:hover {
+  transform: scale(1.1); /* Slight hover effect */
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5); /* Red glow */
+}
+
+.accept-btn:hover {
+  transform: scale(1.1); /* Slight hover effect */
+  box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.5); /* Green glow */
 }
 
 @keyframes fadeIn {

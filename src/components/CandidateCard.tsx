@@ -34,9 +34,13 @@ const CandidateCard: React.FC<CandidateCardProps> = ({
         <p>Bio: {bio}</p>
       </div>
       <div className="candidate-actions">
-        <button className="reject-btn" onClick={onSkip}>❌</button>  {/* Update existing skip button */}
-        <button className="accept-btn" onClick={onSave}>✅</button>  {/* Update existing save button */}
-      </div>
+  <button className="btn btn-danger rounded-circle phone-btn reject-btn" onClick={onSkip}>
+    <i className="fas fa-times"></i>  {/* Cross (delete) icon */}
+  </button>
+  <button className="btn btn-success rounded-circle phone-btn accept-btn" onClick={onSave}>
+    <i className="fas fa-check"></i> {/* Check (accept) icon */}
+  </button>
+</div>
     </div>
   );
 };

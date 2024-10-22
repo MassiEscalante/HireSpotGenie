@@ -54,7 +54,7 @@ const CandidateSearch = () => {
 
   return (
     <div>
-      <h1 className="title">Candidate Search</h1> {/* Title outside of Flexbox */}
+      <h1 className="title">HireSpot Genie</h1> {/* Title outside of Flexbox */}
       <div className="candidate-list"> {/* Flexbox container for card */}
         {currentCandidate ? (
           <CandidateCard

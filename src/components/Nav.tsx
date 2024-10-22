@@ -8,7 +8,7 @@ const Nav = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
+  console.log("Nav component loaded");
   return (
     <nav className="nav">
       {/* Hamburger Icon */}
@@ -21,10 +21,10 @@ const Nav = () => {
       {/* Nav Links */}
       <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
         <li className="nav-item">
-          <Link to="/" className="nav-link">Candidate Search</Link>  {/* Root route for Candidate Search */}
+          <Link to="/" className="nav-link">Candidate Search</Link>
         </li>
         <li className="nav-item">
-          <Link to="/savedcandidates" className="nav-link">Saved Candidates</Link>  {/* Route for Saved Candidates */}
+          <Link to="/savedcandidates" className="nav-link">Saved Candidates</Link>
         </li>
       </ul>
     </nav>
