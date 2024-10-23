@@ -238,9 +238,9 @@ tbody tr:nth-child(odd) {
   margin-bottom: 20px;
   margin-top: -10px; 
   text-align: center;
-  margin-left: 0px; 
-  
+  margin-left: 0px;
 }
+
 /*/CandidateCard.tsx Styles/*/
 .candidate-card {
   background: rgba(255, 255, 255, 0.1); /* Transparent glass effect */
@@ -257,7 +257,7 @@ tbody tr:nth-child(odd) {
 }
 
 .candidate-card:hover {
-  background: rgba(0, 200, 255, 0.2); /* Slight color change on hover */
+  background:  rgba(50, 50, 200, 0.8);/* Slight color change on hover */
   transform: translateY(-15px) scale(1.05);
   box-shadow: 0px 10px 30px rgba(0, 255, 255, 0.6), 0px 15px 50px rgba(0, 200, 255, 0.5);
 }
@@ -331,7 +331,6 @@ tbody tr:nth-child(odd) {
 }
 
 .candidate-card {
-  background-color: #111;
   border-radius: 15px;
   padding: 20px;
   width: 300px;
