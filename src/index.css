@@ -237,6 +237,9 @@ tbody tr:nth-child(odd) {
   animation: glow 2s infinite alternate;
   margin-bottom: 20px;
   margin-top: -10px; 
+  text-align: center;
+  margin-left: 0px; 
+  
 }
 /*/CandidateCard.tsx Styles/*/
 .candidate-card {
